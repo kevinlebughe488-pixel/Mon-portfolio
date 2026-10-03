@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F5F6F8" />
+    <!-- Sets the theme before first paint: stored choice, otherwise the system preference. -->
+    <script>
+      (() => {
+        let t
+        try { t = localStorage.getItem('theme') } catch {}
+        const d = t === 'dark' || t === 'light' ? t : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = d
+        const m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.content = d === 'dark' ? '#0A0C10' : '#F5F6F8'
+      })()
+    </script>
+    <title>Kevin Lebughe Yoka · Développeur passionné d'IA</title>
+    <meta
+      name="description"
+      content="Portfolio de Kevin Lebughe Yoka, développeur basé à Kinshasa et passionné d'intelligence artificielle. Licence 3 en Informatique de Gestion terminée, ouvert à une alternance."
+    />
+    <meta name="author" content="Kevin Lebughe Yoka" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Kevin Lebughe Yoka · Développeur passionné d'IA" />
+    <meta
+      property="og:description"
+      content="Licence 3 en Informatique de Gestion terminée. Développement et intelligence artificielle. Ouvert à une alternance."
+    />
+    <!-- After deploying, replace "/og-image.png" by the full address, e.g. https://ton-site.vercel.app/og-image.png -->
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kevin Lebughe Yoka, développeur passionné d'intelligence artificielle" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image.png" />
+  </head>
+  <body>
+    <noscript>Ce portfolio nécessite JavaScript. Contact : kevinlebughe488@gmail.com</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
