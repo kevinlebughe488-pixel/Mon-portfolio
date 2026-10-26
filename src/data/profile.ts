@@ -7,8 +7,6 @@
  *  - skills : la liste des technologies (Python, JavaScript, Git, Merise, UML, SQL…).
  *  - projects : remplace ou complète avec tes vrais projets.
  *  - socials : ajoute tes liens GitHub / LinkedIn (rien ne s'affiche tant que la liste est vide).
- *  - public/cv/CV-Kevin-Lebughe-Yoka.pdf : ton PDF actuel indique encore « Licence 2 » ;
- *    remplace-le par une version à jour, avec le même nom de fichier.
  */
 import {
   Braces,
