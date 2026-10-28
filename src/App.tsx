@@ -9,6 +9,7 @@ import Contact from './sections/Contact'
 import Hero from './sections/Hero'
 import Journey from './sections/Journey'
 import Projects from './sections/Projects'
+import Services from './sections/Services'
 import Skills from './sections/Skills'
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Journey />
+        <Services />
         <Contact />
       </main>
       <Footer />
