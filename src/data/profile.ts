@@ -7,8 +7,6 @@
  *  - skills : la liste des technologies (Python, JavaScript, Git, Merise, UML, SQL…).
  *  - projects : remplace ou complète avec tes vrais projets.
  *  - socials : ajoute tes liens GitHub / LinkedIn (rien ne s'affiche tant que la liste est vide).
- *  - profile.whatsapp : le numéro utilisé par les boutons WhatsApp de la section Services.
- *  - services.packs[].price : les tarifs (rien ne s'affiche tant qu'ils sont vides).
  */
 import {
   Braces,
@@ -45,7 +43,7 @@ export const profile = typo({
     { display: '+243 834 900 635', tel: '+243834900635' },
     { display: '+243 980 746 037', tel: '+243980746037' },
   ],
-  /** Numéro WhatsApp au format international, chiffres seulement (pas de « + » ni d'espaces). */
+  /** Numéro WhatsApp (+243 834 900 635) au format international, chiffres seulement (pas de « + » ni d'espaces). */
   whatsapp: '243834900635',
   cv: { href: '/cv/CV-Kevin-Lebughe-Yoka.pdf', fileName: 'CV-Kevin-Lebughe-Yoka.pdf' },
 } as const)
@@ -333,8 +331,6 @@ export type Pack = {
   id: 'essentiel' | 'pro' | 'premium'
   name: string
   audience: string
-  /** Tarif affiché sous le nom, ex. « 50 $ ». Laisse vide pour ne rien afficher. */
-  price?: string
   features: string[]
   cta: string
   /** Message pré-rempli dans WhatsApp */

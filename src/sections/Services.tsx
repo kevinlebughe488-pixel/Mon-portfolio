@@ -56,7 +56,6 @@ function PackCard({ pack, rowIndex }: { pack: Pack; rowIndex: number }) {
       <h3 id={titleId} className="type-h3 mt-4 text-fg">
         {pack.name}
       </h3>
-      {pack.price && <p className="type-email mt-3 text-fg tabular-nums">{pack.price}</p>}
       <p className="mt-3 text-[0.9375rem] leading-relaxed text-fg-2 sm:text-base">{pack.audience}</p>
       <ul role="list" className="mt-6 flex flex-col gap-3 border-t border-line-subtle pt-6">
         {pack.features.map((feature) => (
