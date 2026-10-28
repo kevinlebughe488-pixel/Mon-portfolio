@@ -52,7 +52,7 @@ Tous les textes sont dans **`src/data/profile.ts`** : identité, accroche, comp�
 ```
 src/
   data/profile.ts        tout le contenu du site
-  sections/              Hero, À propos, Compétences, Projets, Parcours, Contact
+  sections/              Hero, À propos, Compétences, Projets, Parcours, Services, Contact
   components/layout/     barre de navigation, menu mobile, pied de page
   components/ui/         boutons, tuiles, pastilles, en-têtes de section, photos
   lib/motion.ts          réglages des animations (durées, courbes, ressorts)

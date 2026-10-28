@@ -43,6 +43,8 @@ export const profile = typo({
     { display: '+243 834 900 635', tel: '+243834900635' },
     { display: '+243 980 746 037', tel: '+243980746037' },
   ],
+  /** Numéro WhatsApp (+243 834 900 635) au format international, chiffres seulement (pas de « + » ni d'espaces). */
+  whatsapp: '243834900635',
   cv: { href: '/cv/CV-Kevin-Lebughe-Yoka.pdf', fileName: 'CV-Kevin-Lebughe-Yoka.pdf' },
 } as const)
 
@@ -58,6 +60,7 @@ export const navLinks = [
   { id: 'competences', label: 'Compétences' },
   { id: 'projets', label: 'Projets' },
   { id: 'parcours', label: 'Parcours' },
+  { id: 'services', label: 'Services' },
   { id: 'contact', label: 'Contact' },
 ] as const
 export type SectionId = (typeof navLinks)[number]['id']
@@ -123,9 +126,17 @@ export const sections = typo({
     title: "Étape par étape, jusqu'à la Licence 3.",
     intro: 'Formation, certification et diplôme : une progression régulière.',
   },
+  services: {
+    id: 'services',
+    index: '05',
+    label: 'Services',
+    title: 'Votre CV et votre portfolio en ligne, prêts en quelques jours',
+    intro:
+      'Un CV moderne et un site personnel qui montre concrètement ce que vous savez faire. Pour vous démarquer auprès des recruteurs, au Congo comme à l\'international.',
+  },
   contact: {
     id: 'contact',
-    index: '05',
+    index: '06',
     label: 'Contact',
     title: 'Vous recrutez en alternance ? Parlons-en.',
     intro: 'Le plus simple : un e-mail. Je vous réponds dans les meilleurs délais.',
@@ -314,6 +325,121 @@ export const timeline: TimelineEntry[] = typo([
 export const progressLabel = 'Progression'
 
 /* ------------------------------------------------------------------ */
+/* Services (aucun témoignage, aucun chiffre ni nom de client inventé)  */
+/* ------------------------------------------------------------------ */
+export type Pack = {
+  id: 'essentiel' | 'pro' | 'premium'
+  name: string
+  audience: string
+  features: string[]
+  cta: string
+  /** Message pré-rempli dans WhatsApp */
+  message: string
+  /** Pack mis en avant (badge + couleur d'accent) */
+  featured?: boolean
+}
+
+export const services = typo({
+  eyebrow: 'Pack',
+  featuredBadge: 'Le plus choisi',
+  packs: [
+    {
+      id: 'essentiel',
+      name: 'Pack Essentiel',
+      audience: 'Pour les jeunes diplômés et les stagiaires.',
+      features: [
+        'Refonte moderne de votre CV (PDF)',
+        "Portfolio d'une page : présentation, compétences, contact",
+        'Hébergé gratuitement sur une adresse du type votrenom.vercel.app',
+        'Livré en 5 jours',
+        '2 séries de corrections incluses',
+      ],
+      cta: "Choisir l'Essentiel",
+      message: 'Bonjour, je suis intéressé(e) par le Pack Essentiel pour mon CV-portfolio.',
+    },
+    {
+      id: 'pro',
+      name: 'Pack Pro',
+      audience: 'Pour les professionnels en recherche active.',
+      features: [
+        'Refonte de votre CV avec un QR code vers votre portfolio',
+        'Site complet : parcours, projets, compétences, bouton WhatsApp',
+        'Votre propre nom de domaine pendant 1 an (ex. votrenom.com)',
+        'Optimisation de votre profil LinkedIn',
+        'Livré en 7 jours',
+        '2 séries de corrections incluses',
+      ],
+      cta: 'Choisir le Pro',
+      message: 'Bonjour, je suis intéressé(e) par le Pack Pro pour mon CV-portfolio.',
+      featured: true,
+    },
+    {
+      id: 'premium',
+      name: 'Pack Premium',
+      audience: "Pour les cadres, les freelances et les profils qui visent l'international.",
+      features: [
+        'Tout le pack Pro',
+        'CV et site en français et en anglais',
+        'Une page détaillée pour chacun de vos projets',
+        'Lettre de motivation rédigée',
+        '1 mois de petites retouches après la mise en ligne',
+        'Livré en 10 jours',
+        '2 séries de corrections incluses',
+      ],
+      cta: 'Choisir le Premium',
+      message: 'Bonjour, je suis intéressé(e) par le Pack Premium pour mon CV-portfolio.',
+    },
+  ] as Pack[],
+  steps: {
+    title: 'Comment ça marche',
+    items: [
+      'Vous choisissez votre pack et m\'écrivez sur WhatsApp.',
+      'Vous remplissez un court questionnaire et versez 50 % d\'acompte.',
+      'Je vous envoie un aperçu de votre CV et de votre site. Vous pouvez demander jusqu\'à 2 séries de corrections.',
+      'Vous réglez le solde, je mets votre site en ligne et vous remets votre CV final.',
+    ],
+  },
+  terms: {
+    title: 'Conditions',
+    items: [
+      'Paiement : 50 % à la commande, 50 % à la livraison, par M-Pesa, Orange Money ou Airtel Money.',
+      'Le délai démarre à la réception de l\'acompte et du questionnaire complet.',
+      'Une série de corrections = toutes vos remarques envoyées en une seule fois. Série supplémentaire : 10 $.',
+      "L'acompte n'est pas remboursable une fois le travail commencé.",
+      'Après la première année, le renouvellement du nom de domaine est à votre charge.',
+    ],
+  },
+  faq: {
+    title: 'Questions fréquentes',
+    items: [
+      {
+        question: "Je n'ai pas de photo professionnelle, c'est un problème ?",
+        answer: 'Non. Une photo nette, sur fond uni, prise avec un bon téléphone suffit.',
+      },
+      {
+        question: 'Je ne sais pas quel pack choisir.',
+        answer: 'Écrivez-moi sur WhatsApp, je vous conseille selon votre profil et votre objectif.',
+      },
+      {
+        question: 'Combien de temps mon site reste-t-il en ligne ?',
+        answer:
+          "Avec l'Essentiel, il reste en ligne gratuitement. Avec le Pro et le Premium, le nom de domaine est inclus la première année, puis renouvelable chaque année.",
+      },
+    ],
+  },
+  final: {
+    title: 'Prêt à vous démarquer ?',
+    cta: 'Discuter sur WhatsApp',
+    message: "Bonjour, j'aimerais avoir mon CV-portfolio. Pouvez-vous me conseiller ?",
+  },
+})
+
+/** Lien WhatsApp qui ouvre la conversation avec un message pré-rempli. */
+export function whatsappLink(message: string): string {
+  return `https://wa.me/${profile.whatsapp}?text=${encodeURIComponent(message)}`
+}
+
+/* ------------------------------------------------------------------ */
 /* Contact                                                              */
 /* ------------------------------------------------------------------ */
 export const contact = typo({
@@ -340,6 +466,7 @@ function fixFrench(s: string): string {
     .replace(/« /g, `«${NBSP}`)
     .replace(/ ([?!;])/g, `${NNBSP}$1`)
     .replace(/Licence (\d)/g, `Licence${NBSP}$1`)
+    .replace(/(\d) ([%$])/g, `$1${NBSP}$2`) // « 50 % », « 10 $ »
     .replace(/ · /g, `${NBSP}· `) // never start a line with « · »
     .replace(/(\+\d{3}) (\d{3}) (\d{3}) (\d{3})/g, `$1${NBSP}$2${NBSP}$3${NBSP}$4`)
 }
