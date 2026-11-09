@@ -3,7 +3,7 @@ import { preload } from 'react-dom'
 import { AppProviders } from './components/AppProviders'
 import Footer from './components/layout/Footer'
 import Navbar from './components/layout/Navbar'
-import { ui } from './data/profile'
+import { showServices, ui } from './data/profile'
 import About from './sections/About'
 import Contact from './sections/Contact'
 import Hero from './sections/Hero'
@@ -28,7 +28,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Journey />
-        <Services />
+        {showServices && <Services />}
         <Contact />
       </main>
       <Footer />

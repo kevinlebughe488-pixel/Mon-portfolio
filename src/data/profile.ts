@@ -55,7 +55,13 @@ export const socials: readonly Social[] = []
 /* ------------------------------------------------------------------ */
 /* Navigation et textes d'interface                                     */
 /* ------------------------------------------------------------------ */
-export const navLinks = [
+/**
+ * Afficher la section Services (et son lien dans le menu) ?
+ * Mets `false` pour la masquer temporairement (ex. avant un entretien), `true` pour la remettre.
+ */
+export const showServices = false
+
+const allNavLinks = [
   { id: 'a-propos', label: 'À propos' },
   { id: 'competences', label: 'Compétences' },
   { id: 'projets', label: 'Projets' },
@@ -63,7 +69,8 @@ export const navLinks = [
   { id: 'services', label: 'Services' },
   { id: 'contact', label: 'Contact' },
 ] as const
-export type SectionId = (typeof navLinks)[number]['id']
+export type SectionId = (typeof allNavLinks)[number]['id']
+export const navLinks = allNavLinks.filter((l) => showServices || l.id !== 'services')
 export const sectionIds: readonly SectionId[] = navLinks.map((l) => l.id)
 
 export const ui = typo({
@@ -136,7 +143,7 @@ export const sections = typo({
   },
   contact: {
     id: 'contact',
-    index: '06',
+    index: showServices ? '06' : '05',
     label: 'Contact',
     title: 'Vous recrutez en alternance ? Parlons-en.',
     intro: 'Le plus simple : un e-mail. Je vous réponds dans les meilleurs délais.',
